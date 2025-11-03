@@ -1,22 +1,74 @@
 import { Request, Response } from "express";
-// import { } from "../services/userService";
+import { getAllUsersService, 
+    getUserByIdService,
+    createUserService,
+    findUserByCredentialsIdService
+} from "../services/usersService";
+import { validateCredentialsService } from "../services/credentialsService";
+import { User } from "../entities/User";
 
-//Get/ users => obtener todos los usuarios
-//Get/ users/ :id =>obtener usuario por ID
-//post/users/ register => crear un nuevo usuario y se logee
 
-export const getUsers = async (req: Request, res: Response) => {
-    res.send("Obtener el listado de todos los usuarios")
-}
+export const getAllUsers = async (req: Request, res: Response) => {
+    try {
+        const users: User[] =  await getAllUsersService();
+        res.status(200).json(users);
+    } catch (error: any) {
+        res.status(500).json({ error: error.message});
+    }    
+};
 
 export const getUserById = async (req: Request, res: Response) => {
-    const { id } = req.params;
-    res.send("Obtener el detalle de un usuario específico por ID")
-}
+    try {
+        const { id } =  req.params;
+        const user: User | null = await getUserByIdService(Number(id));
+
+        if (!user) {
+            return res.status(404).json({ error: "Usuario no encontrado" });
+        }
+
+        res.status(200).json(user);
+    } catch (error: any) {
+        res.status(500).json({ error: error.message });
+    }
+};
 
 export const registerUser = async (req: Request, res: Response) => {
-    res.send("Registro de un nuevo usuario")
-}
+    try {
+        const { name, email, birthdate, nDni, username, password } = req.body;
+        const newUser: User = await createUserService({
+                name,
+                email,
+                birthdate: new Date(birthdate),
+                nDni
+            },
+            username,
+            password
+        );
+        res.status(201).json(newUser);
+    } catch (error: any) {
+        res.status(400).json({ error: error.message });
+    }
+};
+
+
 export const loginUser = async (req: Request, res: Response) => {
-    res.send("Login del usuario a la aplicación")
-}
+    try {
+        const { username, password } = req.body;
+        const credential = await validateCredentialsService(username, password);
+        if (!credential) {
+            return res.status(401).json({ error: "Credenciales inválidas" });
+        }
+        const user = await findUserByCredentialsIdService(credential.id);
+
+        if (!user) {
+            return res.status(404).json({ error: "Usuario no encontrado" });
+        }
+
+        res.status(200).json({ 
+            message: "Login exitoso",
+            user 
+        });
+    } catch (error: any) {
+        res.status(500).json({ error: error.message });
+    }
+};

@@ -1,8 +1,14 @@
 import express from 'express';
-import router from "./routes/indexRouter";
+import morgan from "morgan";
+import cors from "cors";
+import indexRouter from "./routes/indexRouter";
 
 const server = express();
+
+server.use(morgan("dev"));
+server.use(cors());
 server.use (express.json());
-server.use("/", router);
+
+server.use(indexRouter);
 
 export default server; 

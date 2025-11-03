@@ -1,15 +1,11 @@
 import { Router } from 'express';
-import { getUsers, getUserById, registerUser, loginUser } from '../controllers/usersController';
+import { getAllUsers, getUserById, registerUser, loginUser } from '../controllers/usersController';
 
-const router: Router = Router();
+const usersRouter: Router = Router();
 
-//Get/ users => obtener todos los usuarios
-//Get/ users/ :id =>obtener usuario por ID
-//post/users/ register => crear un nuevo usuario 
+usersRouter.get("/", getAllUsers);
+usersRouter.get("/:id", getUserById);
+usersRouter.post("/register", registerUser);
+usersRouter.post("/login", loginUser);
 
-router.get("/", getUsers);
-router.get("/:id", getUserById);
-router.post("/register", registerUser);
-router.post("/login", loginUser);
-
-export default router;
+export default usersRouter;

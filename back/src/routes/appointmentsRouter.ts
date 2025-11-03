@@ -1,20 +1,15 @@
 import { Router } from 'express';
-import { getAppointments, 
+import { getAllAppointments, 
     getAppointmentById, 
-    scheduleAppointment, 
+    createAppointment, 
     cancelAppointment 
 } from '../controllers/appointmentsController';
 
-const router: Router = Router();
+const appointmentsRouter: Router = Router();
 
-// GET/Turns => obtener todos los turnos
-// GET/Turns/: id => obtener un turno por ID
-//POST/ TURNS/ Schedule => crear un nuevo turno
-// PUT//turns/ cancel => cancelar un turno
+appointmentsRouter.get("/", getAllAppointments);
+appointmentsRouter.get("/:id", getAppointmentById);
+appointmentsRouter.post("/schedule", createAppointment);
+appointmentsRouter.put("/cancel", cancelAppointment);
 
-router.get("/", getAppointments);
-router.get("/:id", getAppointmentById);
-router.post("/schedule", scheduleAppointment);
-router.put("/cancel", cancelAppointment);
-
-export default router;
+export default appointmentsRouter;
