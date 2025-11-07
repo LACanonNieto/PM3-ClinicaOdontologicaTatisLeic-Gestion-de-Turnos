@@ -1,0 +1,27 @@
+body{
+    margin: 0;
+    padding: 0;
+    line-height: 1.8;
+    background: linear-gradient(
+      to left,
+      rgb(241, 221, 177) 0%,
+      rgb(200, 150, 243) 50%,
+      rgb(194, 162, 218) 100%
+    );
+    position: relative;
+    overflow-x: hidden;
+    
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("./assets/Fondo.png") center/contain repeat;
+  opacity: 0.25;
+  z-index: -1; 
+  pointer-events: none;
+}

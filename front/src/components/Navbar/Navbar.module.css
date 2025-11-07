@@ -1,0 +1,95 @@
+.header {
+    position: relative;
+    width: 100%;
+    background-color: hsl(274, 74%, 47%);
+    margin-top: 2em;
+    margin-bottom: 2em;
+    height: 5em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 14px;
+    overflow: visible;
+    z-index: 0;
+}
+
+
+.header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+    120deg,
+    #f8c16f,
+    #d96bc3,
+    #a24dca,
+    #c084fc,
+    #a855f7
+    );
+    background-size: 400%;
+    z-index: 1;
+    animation: snakeLight 8s linear infinite;
+    border-radius: 14px;
+    padding: 2px; 
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: 
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+}
+
+
+@keyframes snakeLight {
+    0% {
+    background-position: 0% 50%;
+    }
+    100% {
+    background-position: 400% 50%;
+    }
+}
+
+
+.header > * {
+    position: relative;
+    z-index: 2;
+}
+
+.ItemsNav {
+    width: 40em;
+    height: 80em;
+    margin-right: 0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.OptionsNav {
+    font-size: 12px;
+    color: #f5f2f2;
+    line-height: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s;
+    font-family:'Delius', cursive;
+    font-weight: bold;
+}
+
+.OptionsNav:hover {
+    background-color: #a755c7;
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 4px 15px 5px 16px;
+    box-shadow: 0 0 10px rgb(206, 110, 230);
+}
+
+.Logo {
+    width: 11em;
+    height: 8em;
+    margin-left: 5%;
+    margin-bottom: 0%;
+    filter: drop-shadow(0 0 15px rgba(74, 17, 148, 0.8));
+}

@@ -1,0 +1,38 @@
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 2fr 1fr;
+    align-items: center;
+    padding: 0.4rem 0.6rem;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 0.95rem;
+    font-family:'Delius', cursive;;
+}
+
+.actionCell {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    position: relative;
+    z-index: 1;
+}
+
+.actionBtn {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.3rem 0.6rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.actionBtn:hover {
+    background-color: #c9302c;
+}
+
+.disabledBtn {
+    background-color: gray;
+    cursor: not-allowed;
+}
