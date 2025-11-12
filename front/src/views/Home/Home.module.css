@@ -1,6 +1,9 @@
 .main {
     width: 100%;
-    height: calc(100vh - 5em);
+    max-width: 72em;
+    min-height: calc(100vh - 5em);
+    margin: 0 auto;
+    padding: 2em;
     border-radius: 15px;
     background: hsl(274, 74%, 47%, 0.1);
     display: flex;
@@ -8,11 +11,57 @@
     align-items: center;
     align-content: center;
     justify-content: center;
+    box-sizing: border-box;
 }
 
 .main > h1 {
-    font-size: 2em;
+    margin-top: 0.5em;
+    font-size: clamp(2em, 5vw, 3em);
     font-weight: 600;
     color: rgb(223, 219, 226);
     filter: drop-shadow(0 0 15px rgba(74, 17, 148, 0.8));
+    text-align: center;
+    padding: 0 1rem;
+} 
+
+
+@media (max-width: 1024px) {
+    .main {
+        max-width: 90%;
+        padding: 1.5em;
+        margin: 1em auto;
+    }
+    
+    .main > h1 {
+        font-size: 2.5em;
+        margin-top: 0.3em;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .main {
+        max-width: 95%;
+        padding: 1em;
+        margin: 0.5em;
+        border-radius: 10px;
+        min-height: auto;
+    }
+    
+    .main > h1 {
+        font-size: 2em;
+        margin-top: 0.2em;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .main {
+        padding: 0.8em;
+        margin: 0.3em;
+    }
+    
+    .main > h1 {
+        font-size: 1.5em;
+    }
 }

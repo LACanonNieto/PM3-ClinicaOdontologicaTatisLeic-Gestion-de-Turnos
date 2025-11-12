@@ -1,0 +1,43 @@
+.contactContainer {
+    min-height: calc(100vh - 5em);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: linear-gradient(
+        135deg,
+        rgba(155, 89, 182, 0.2),
+        rgba(69, 20, 206, 0.2)
+    );
+}
+
+.title {
+    font-size: clamp(2.5em, 5vw, 4em);
+    font-weight: 600;
+    color: rgb(223, 219, 226);
+    filter: drop-shadow(0 0 15px rgba(74, 17, 148, 0.8));
+    margin-bottom: 0.5rem;
+    text-align: center;
+    font-family: 'Delius', cursive;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: rgb(223, 219, 226);
+    text-align: center;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    font-family: 'Delius', cursive;
+}
+
+@media (max-width: 768px) {
+    .contactContainer {
+        padding: 1rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+}

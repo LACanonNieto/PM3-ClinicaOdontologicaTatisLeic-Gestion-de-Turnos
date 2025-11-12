@@ -1,9 +1,10 @@
 import styles from "./TextHome.module.css"
 
+
 const TextHome = () =>{
     return(
         <div className={styles.container}>
-                <img src= 'foto' alt="FOTO"/>
+                <img src="/images/foto-Consultorio.jpg" alt="Consultorio Odontológico" className={styles.image}/>
 
             <p>
             En nuestro consultorio odontológico brindamos atención integral 

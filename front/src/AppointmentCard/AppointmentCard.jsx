@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./AppointmentCard.module.css"
 
-const AppointmentCard = ({ appointment, onCancel }) =>{
+const AppointmentCard = ({ appointment, onCancel }) => {
     const handleCancelClick = () => {
 
         if (appointment.status.toLowerCase() !== "cancelled") {
@@ -23,7 +23,7 @@ const AppointmentCard = ({ appointment, onCancel }) =>{
             onClick={handleCancelClick}
             disabled={appointment.status === "Cancelled"}
         >
-            {appointment.status.toLowerCase() === "Cancelled" ? "Cancelado" : "Cancelar"}
+            {appointment.status.toLowerCase() === "cancelled" ? "Cancelado" : "Cancelar"}
         </button>
         </div>
     </div>

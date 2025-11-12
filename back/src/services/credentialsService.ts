@@ -27,7 +27,7 @@ export const validateCredentialsService = async (
     },
 });
     if (!foundCredentials){
-        throw new Error( "❌no existe el username")
+        throw new Error( "❌ no existe el Usuario")
     }
     const isValid = await bcrypt.compare(password, foundCredentials.password);
 

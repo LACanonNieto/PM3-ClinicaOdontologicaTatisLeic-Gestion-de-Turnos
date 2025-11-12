@@ -1,0 +1,116 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(
+        135deg,
+        rgba(155, 89, 182, 0.2),
+        rgba(69, 20, 206, 0.2)
+    );
+}
+
+.form {
+    padding: 40px 50px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 20px rgba(31, 2, 87, 0.5);
+    width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: hsla(0, 0%, 97%, 0.7);
+}
+
+.title {
+    text-align: center;
+    font-size: 2rem;
+    color: #7335b9;
+    margin-bottom: 10px;
+    font-family:'Delius', cursive;
+    font-weight: bold;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.inputGroup label {
+    font-weight: 500;
+    color: #46059b;
+    font-size: 1.1rem;
+    font-family:'Delius', cursive;
+}
+
+.inputGroup input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    outline: none;
+    transition: border-color 0.3s;
+    color: #23034d;
+    font-family:'Delius', cursive;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.inputGroup input:focus {
+    border-color: #6c3cb9;
+}
+
+.inputError {
+    border-color: #d9534f !important;
+}
+
+.error {
+    color: #d9534f;
+    font-size: 0.85rem;
+    margin-top: 0.3rem;
+    font-weight: 500;
+    font-family:'Delius', cursive;
+}
+
+.button {
+    background-color: #6c3cb9;
+    font-size: 1.1rem;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-family:'Delius', cursive;
+    font-weight: bold;
+    transition: background-color 0.3s, opacity 0.3s;
+    width: 100px;
+    margin-left: 40%;
+}
+
+.button:hover:not(:disabled) {
+    background-color: #5a2ea0;
+}
+
+.button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.registerLink {
+    text-align: center;
+    margin-top: 1rem;
+    color: #666;
+    font-size: 1rem;
+    font-family:'Delius', cursive;
+}
+
+.link {
+    color: #6c3cb9;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.link:hover {
+    color: #5a2ea0;
+    text-decoration: underline;
+}

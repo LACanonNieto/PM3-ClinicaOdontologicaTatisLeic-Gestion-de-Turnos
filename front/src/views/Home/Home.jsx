@@ -4,7 +4,7 @@ import TextHome from "../../components/TextHome/TextHome.jsx"
 const Home = () => {
     return (
     <main className={styles.main}>
-        <h1>Bienvenidos al Consultorio Odontologico</h1>
+        <h1>Bienvenidos al Consultorio Odontológico</h1>
         <TextHome/>
     </main>
     )

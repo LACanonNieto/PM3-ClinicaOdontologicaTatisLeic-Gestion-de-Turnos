@@ -62,7 +62,7 @@
 
 .ItemsNav {
     width: 40em;
-    height: 80em;
+    height: 20;
     margin-right: 0.5em;
     display: flex;
     align-items: center;
@@ -76,6 +76,7 @@
     transition: transform 0.3s ease, box-shadow 0.3s;
     font-family:'Delius', cursive;
     font-weight: bold;
+    text-decoration: none;
 }
 
 .OptionsNav:hover {

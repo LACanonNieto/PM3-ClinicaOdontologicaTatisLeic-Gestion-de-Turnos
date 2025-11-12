@@ -1,0 +1,161 @@
+.card {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 900px;
+    margin: 2rem auto;
+    background: linear-gradient(135deg, #cb82e7 50%, #550f9c 100%);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    font-family: 'Delius', cursive;
+}
+
+.imageSection {
+    flex: 1;
+    min-width: 350px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+.photo {
+    width: 80%;
+    height: auto;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(48, 3, 78, 2);
+}
+
+.infoSection {
+    flex: 1.5;
+    padding: 2.5rem 2rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.header {
+    margin-bottom: 1.5rem;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.subtitle {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+    letter-spacing: 1.5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.tagline {
+    font-size: 1rem;
+    font-style: italic;
+    margin-top: 0.5rem;
+    opacity: 0.9;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.infoItem {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.infoItem:last-child {
+    border-bottom: none;
+}
+
+.icon {
+    font-size: 1.5rem;
+    min-width: 30px;
+}
+
+.infoItem p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .card {
+        flex-direction: column;
+        max-width: 95%;
+    }
+    
+    .imageSection {
+        min-width: auto;
+        height: 250px;
+    }
+    
+    .infoSection {
+        padding: 2rem 1.5rem;
+    }
+    
+    .title {
+        font-size: 2rem;
+    }
+    
+    .subtitle {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .infoSection {
+        padding: 1.5rem 1rem;
+    }
+    
+    .title {
+        font-size: 1.7rem;
+    }
+    
+    .subtitle {
+        font-size: 1.3rem;
+    }
+    
+    .infoItem {
+        gap: 0.8rem;
+    }
+    
+    .icon {
+        font-size: 1.2rem;
+    }
+    
+    .infoItem p {
+        font-size: 0.9rem;
+    }
+}
+
+.link {
+    color: white;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.link:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}

@@ -1,0 +1,54 @@
+.serviceItem {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(135deg, #b328a7 0%, #7f19d2 100%);
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+.serviceItem:hover {
+    transform: translateX(10px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.iconWrapper {
+    background: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.icon {
+    color: #4f21f3;
+    font-size: 1.2rem;
+}
+
+.serviceName {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: 'Delius', cursive;
+}
+
+@media (max-width: 768px) {
+    .serviceItem {
+        padding: 0.6rem 1.2rem;
+    }
+    
+    .iconWrapper {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .serviceName {
+        font-size: 1rem;
+    }
+}
