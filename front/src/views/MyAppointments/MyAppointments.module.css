@@ -179,7 +179,6 @@
     transform: scale(1.05);
 }
 
-/* Responsive */
 @media (max-width: 1024px) {
     .header,
     .tableContainer,

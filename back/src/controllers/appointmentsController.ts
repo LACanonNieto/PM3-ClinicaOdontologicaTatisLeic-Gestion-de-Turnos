@@ -41,16 +41,16 @@ export const createAppointment = async (req: Request, res: Response) => {
             return res.status(404).json({ error: "Usuario no encontrado" });
         }
         
-        // ✅ Validar que date existe
+
         if (!date) {
             return res.status(400).json({ error: "La fecha es requerida" });
         }
         
-        // ✅ Manejar el string de fecha directamente
+
         let localDate: Date;
         
         if (typeof date === 'string') {
-            // Si viene como string "YYYY-MM-DD"
+
             const dateParts = date.split('-');
             
             if (dateParts.length !== 3 || !dateParts[0] || !dateParts[1] || !dateParts[2]) {
@@ -61,14 +61,14 @@ export const createAppointment = async (req: Request, res: Response) => {
             const month: number = Number(dateParts[1]);
             const day: number = Number(dateParts[2]);
             
-            // ✅ Validar que los valores sean números válidos
+
             if (isNaN(year) || isNaN(month) || isNaN(day)) {
                 return res.status(400).json({ error: "Formato de fecha inválido" });
             }
             
             localDate = new Date(year, month - 1, day);
         } else {
-            // Si viene como objeto Date
+
             localDate = new Date(date);
         }
         

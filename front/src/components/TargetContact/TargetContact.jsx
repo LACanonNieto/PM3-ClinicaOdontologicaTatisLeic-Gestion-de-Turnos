@@ -13,8 +13,8 @@ const TargetContact = () => {
             
             <div className={styles.infoSection}>
                 <div className={styles.header}>
-                    <h2 className={styles.title}>CONSULTORIO</h2>
-                    <h3 className={styles.subtitle}>ODONTOLÓGICO</h3>
+                    <h2 className={styles.title}>Odontóloga</h2>
+                    <h3 className={styles.subtitle}>Dra. Tatiana Andrea Leiva</h3>
                     <p className={styles.tagline}>Cuidando tu sonrisa</p>
                 </div>
                 
@@ -48,7 +48,10 @@ const TargetContact = () => {
                     
                     <div className={styles.infoItem}>
                         <span className={styles.icon}>🕐</span>
-                        <p>Lun - Vie: 8:00 AM - 6:00 PM</p>
+                        <div>
+                            <p>Lunes - Viernes: 8:00 AM - 6:00 PM </p>
+                            <p>Sabados: 8:00 AM - 12:00M</p>
+                        </div>
                     </div>
                 </div>
             </div>

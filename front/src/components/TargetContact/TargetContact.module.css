@@ -95,7 +95,6 @@
     line-height: 1.4;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     .card {
         flex-direction: column;

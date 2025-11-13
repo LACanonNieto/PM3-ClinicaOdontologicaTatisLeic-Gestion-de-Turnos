@@ -91,7 +91,6 @@
     transform: translateY(-1px);
 }
 
-/* Responsive */
 @media (max-width: 1024px) {
     .contentWrapper {
         gap: 2rem;

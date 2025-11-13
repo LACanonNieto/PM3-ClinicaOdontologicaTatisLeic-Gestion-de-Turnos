@@ -21,6 +21,17 @@ export const validationSchema = Yup.object({
         .matches(emailRegex, "Email inválido"),
     birthdate: Yup.date()
         .max(new Date(), "La fecha no puede ser futura")
+        .test('edad-minima', 'Debes ser mayor de 18 años', function(value) {
+            if (!value) return false;
+            const hoy = new Date();
+            const fechaNacimiento = new Date(value);
+            let edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
+            const mes = hoy.getMonth() - fechaNacimiento.getMonth();
+            if (mes < 0 || (mes === 0 && hoy.getDate() < fechaNacimiento.getDate())) {
+                edad--;
+            }
+            return edad >= 18;
+        })
         .required("La fecha de nacimiento es obligatoria"),
     nDni: Yup.string()
         .matches(/^[0-9]+$/, "El DNI solo debe contener números")

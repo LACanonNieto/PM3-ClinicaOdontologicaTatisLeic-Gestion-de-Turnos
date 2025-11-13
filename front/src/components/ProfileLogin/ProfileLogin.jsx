@@ -47,14 +47,18 @@ useEffect(() => {
     const handleImageChange = (e) => {
         const file = e.target.files?.[0];
         if (file) {
-            const imageURL = URL.createObjectURL(file);
-            setImage(imageURL);
-
-        if (user?.id) {
-            localStorage.setItem(`profileImage_${user.id}`, imageURL);
-        }
-        }   
-    };
+            const reader = new FileReader();
+        reader.onloadend = () => {
+            const base64String = reader.result;
+            setImage(base64String);
+            
+            if (user?.id) {
+                localStorage.setItem(`profileImage_${user.id}`, base64String);
+            }
+        };
+        reader.readAsDataURL(file);
+    }
+};
 
     useEffect(() => {
         if (user?.id) {

@@ -17,4 +17,3 @@ AppDataSource.initialize().then(() => {
         console.error("❌ Error conectando a la base de datos:", error);
         process.exit(1);
     });
-    

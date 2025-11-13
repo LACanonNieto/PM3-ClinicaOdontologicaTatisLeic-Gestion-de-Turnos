@@ -36,8 +36,7 @@
 - El usuario solo puede cancelar su turno un dia antes de este.
 - El usuario no puede cancelar un turno el mismo dia o posterior, alerta.
 - Al cancelar el turno debe salir alertas haciendo la confirmacion de que desea cancelar el turno.
-- Al cancelar el turno en el historial ya debe aparecer con status cancelado.
-- Al cancelar la cita debe enviar una confirmacion por correo electronico. 
+- Al cancelar el turno en el historial ya debe aparecer con status cancelado. 
 
 5. **SALIR DE MI PERFIL**
 -Como usuario autenticado debo poder hacer logout (cerrar Sesion).
