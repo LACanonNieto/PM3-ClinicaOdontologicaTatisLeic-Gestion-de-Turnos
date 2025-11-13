@@ -5,6 +5,6 @@ interface IUser {
     birthdate: Date;
     nDni: number;
     credentialsId: number;
-};
+}
 
 export default IUser;

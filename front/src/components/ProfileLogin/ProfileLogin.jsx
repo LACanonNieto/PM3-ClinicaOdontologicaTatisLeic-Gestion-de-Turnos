@@ -10,14 +10,6 @@ export default function ProfileLogin() {
     const navigate = useNavigate();
     const menuRef = useRef(null);
 
-useEffect(() => {
-        const storedImage = user ? localStorage.getItem(`profileImage_${user.id}`) : null;
-        
-        if (storedImage) {
-            setImage(storedImage);
-        }
-    }, []);
-
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (menuRef.current && !menuRef.current.contains(event.target)) {

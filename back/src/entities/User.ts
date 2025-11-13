@@ -35,4 +35,4 @@ export class User{
 
     @OneToMany(() => Appointment, (appointment) => appointment.user)
     appointments: Appointment[]
-};
+}

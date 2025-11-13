@@ -4,6 +4,6 @@ interface IAppointment {
     time: string;
     userId: number;
     status: "active" | "cancelled";
-};
+}
 
 export default IAppointment;

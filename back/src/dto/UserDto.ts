@@ -3,6 +3,6 @@ interface UserDto {
     email: string;
     birthdate: Date;
     nDni: number;
-};
+}
 
 export default UserDto;

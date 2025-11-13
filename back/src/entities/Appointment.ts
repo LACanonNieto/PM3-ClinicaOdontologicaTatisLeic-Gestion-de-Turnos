@@ -32,4 +32,4 @@ export class Appointment{
 
     @ManyToOne(() => User, (user) => user.appointments)
     user: User
-};
+}
