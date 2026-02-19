@@ -1,45 +1,123 @@
-# USER STORIES
+# 🦷 PM3 - Sistema de Gestión de Turnos | Consultorio Odontológico
 
-1. **Autenticacion del Usuario:**
--Como usuario quiero porder registrarme o logearme en la aplicacion. 
+---
 
--Criterios de aceptacion:
-- El usuario debe porder registrarse y crear su cuenta proporcionando la informacion como nombre y apellido, email, direccion, celular, foto y contraseña.
-- El usuario deberia validar que la contraseña tenga cacteres, letras mayusculas o minusculas, numeros y que no sea mayor de 8 items.
-- El Usuario deberia validar que el email tenga el @, .toUpperCase(), y que sea .com.
-- El usuario deberia poder personalizar su foto de perfil o modificarla.
-- El usuario debe poder logearse usando el correo y la contraseña.
-- El usuario no podra generar un turno si antes estar registrado o logeado.
+## 📖 About
 
-2. **Reserva de Turnos:**
-- Como usuario resgisttrado quiero poder agendar un turno en una fecha y hora especifica.
-- usuarios diferentes pueden agendar los servicios en el mismo horario y misma fecha.
+Aplicación web **Full Stack** para la gestión de turnos de un consultorio odontológico. Permite a los pacientes registrarse, iniciar sesión, agendar citas y cancelarlas desde la interfaz.
 
--Criterios de aceptacion:
-- El usuario solo podra seleccionar de la lista desplegable los servicios que se ofrece.
-- El usuario solo podra seleccionar una fecha que este despues del dia de hoy, es decir que si selecciona fechas anteriores o de hoy debe salir una alerta, tambien se deben tener en cuenta los fines de semana y feriados.
-- El usuario solo podra seleccionar los horarios entre las 8 am a 4pm, igualmente solo podra seleccionar de la lista desplegable con los horarios que estan activos.
-- Al momento de la aceptacion de agendar el turno, debe salir alerta con turno agendado o salga los todos los campos son obligatorios, si falta alguno.
--Al agendar un turno debe enviar una confirmacion del turno al correo electronico.
-- El usuario debe ver la pagina de MIS TURNOS, cuando ya haya agendado el servicio.
+Backend en **Node.js + Express + TypeScript** con **PostgreSQL** y **TypeORM**. Frontend en **React + Vite** con **Context API** para el manejo de estado global.
 
-3. **Visualizador de Turnos:**
-- Como usuario autenticado debo poder ver mis historial de turnos.
+---
 
--Criterios de aceptacion:
-- El usuario debe ver su historial de turnos activos y cancelados.
+## 🛠️ Tecnologías Usadas
 
-4. **Cancelacion de turnos:**
--Como usuario autenticado, quiero cancelar un turno agendado hasta un dia antes de la fecha asignada.
+### Backend
+- **Node.js / Express / TypeScript** — Servidor y API REST tipada
+- **TypeORM / PostgreSQL** — Base de datos relacional con ORM
+- **bcryptjs** — Encriptación de contraseñas
+- **dotenv / Morgan / CORS** — Variables de entorno, logging y solicitudes entre dominios
+- **Nodemon + ts-node** — Desarrollo con recarga automática
 
--Criterios de aceptacion:
-- El usuario solo puede cancelar su turno un dia antes de este.
-- El usuario no puede cancelar un turno el mismo dia o posterior, alerta.
-- Al cancelar el turno debe salir alertas haciendo la confirmacion de que desea cancelar el turno.
-- Al cancelar el turno en el historial ya debe aparecer con status cancelado. 
+### Frontend
+- **React 19 + Vite** — Interfaz de usuario y bundler moderno
+- **React Router DOM** — Enrutamiento del lado del cliente
+- **Axios** — Peticiones HTTP al backend
+- **Formik + Yup** — Formularios con validaciones declarativas
+- **SweetAlert2** — Alertas y modales estilizados
+- **CSS Modules / Google Fonts** — Estilos encapsulados por componente
 
-5. **SALIR DE MI PERFIL**
--Como usuario autenticado debo poder hacer logout (cerrar Sesion).
+---
 
--Criterios de aceptacion:
-- El usuario debe poder cerrar la sesion y que tenga una alerta de esta seguro cerrar la sesion. 
+## ✨ Funcionalidades Principales
+
+- 📋 **Registro** — Formulario validado con Formik y Yup (nombre, email, DNI, fecha de nacimiento, username y contraseña)
+- 🔐 **Login / Logout** — Autenticación con bcrypt, sesión persistida en `localStorage`
+- 📅 **Agendar turno** — Modal con validación de fechas, horarios (Lun–Vie 8:00–18:00 / Sáb hasta 12:00) y festivos colombianos bloqueados
+- ❌ **Cancelar turno** — El paciente cancela sus turnos activos desde su panel
+- 👤 **Mis turnos** — Vista personalizada con turnos ordenados por estado y fecha
+- 🦷 **Servicios** — Página con los 9 servicios odontológicos disponibles
+- 📞 **Contacto** — Tarjeta con información del consultorio
+- 🖼️ **Perfil** — Avatar con foto subida desde el dispositivo, persistida en `localStorage`
+
+---
+
+## 🏗️ Arquitectura
+
+```
+PM3-LACanonNieto/
+├── back/
+│   └── src/
+│       ├── config/          # Conexión DB y variables de entorno
+│       ├── entities/        # User, Credential, Appointment (TypeORM)
+│       ├── dto/             # Data Transfer Objects
+│       ├── repositories/    # Repositorios TypeORM
+│       ├── services/        # Lógica de negocio
+│       ├── controllers/     # Endpoints
+│       └── routes/          # Rutas agrupadas
+│
+└── front/
+    └── src/
+        ├── context/         # UserContext (estado global)
+        ├── components/      # Navbar, FormAppointments, AppointmentCard...
+        ├── views/           # Home, Login, Register, MyAppointments, Services, Contact
+        └── helpers/         # Validaciones de formularios
+```
+
+- Capas: **Routes → Controllers → Services → Repositories → Entities**
+- Transacciones en DB al crear usuario con sus credenciales
+- Validaciones tanto en cliente (Formik/Yup) como en servidor
+
+---
+
+## ⚙️ Instalación y Ejecución
+
+### Backend
+
+```bash
+cd back
+npm install
+```
+
+Crear `.env` en `back/`:
+
+```env
+PORT=3312
+DB_HOST=localhost
+DB_PORT=5432
+DB_USERNAME=tu_usuario
+DB_PASSWORD=tu_contraseña
+DB_NAME=nombre_base_de_datos
+```
+
+```bash
+npm run dev
+```
+
+Servidor en: `http://localhost:3312`
+
+### Frontend
+
+```bash
+cd front
+npm install
+npm run dev
+```
+
+App en: `http://localhost:5173`
+
+---
+
+## 🔗 Endpoints de la API
+
+| Método | Ruta | Descripción |
+|--------|------|-------------|
+| `GET` | `/users` | Todos los usuarios |
+| `GET` | `/users/:id` | Usuario por ID con sus turnos |
+| `POST` | `/users/register` | Registro de nuevo usuario |
+| `POST` | `/users/login` | Inicio de sesión |
+| `GET` | `/appointments` | Todos los turnos |
+| `GET` | `/appointments/:id` | Turno por ID |
+| `GET` | `/appointments/user/:userId` | Turnos de un usuario |
+| `POST` | `/appointments/schedule` | Agendar turno |
+| `PUT` | `/appointments/cancel/:id` | Cancelar turno |
